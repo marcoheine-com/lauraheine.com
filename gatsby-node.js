@@ -12,6 +12,13 @@ exports.createPages = async ({ graphql, actions }) => {
           url
         }
       }
+      allPrismicBookIllustrations {
+        nodes {
+          id
+          lang
+          url
+        }
+      }
     }
   `)
 
@@ -19,6 +26,17 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: page.url,
       component: path.resolve(__dirname, 'src/templates/work.js'),
+      context: {
+        id: page.id,
+        lang: page.lang,
+      },
+    })
+  })
+
+  queryData.data.allPrismicBookIllustrations.nodes.forEach((page) => {
+    createPage({
+      path: page.url,
+      component: path.resolve(__dirname, 'src/templates/book-illustrations.js'),
       context: {
         id: page.id,
         lang: page.lang,

@@ -6,6 +6,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: 'https://lauraheine.com',
     title: 'lauraheine.com',
+    description: 'lauraheine.com',
   },
   plugins: [
     'gatsby-plugin-image',

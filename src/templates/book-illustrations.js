@@ -2,11 +2,10 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import { Head } from '../components/head'
 import { Sidebar } from '../components/sidebar/sidebar'
-import { GatsbyImage } from 'gatsby-plugin-image'
 
-const Work = ({ data }) => {
+const BookIllustrations = ({ data }) => {
   if (!data) return null
-  const pageContent = data.prismicWork
+  const pageContent = data.prismicBookIllustrations
   const sideBarContent = data.prismicSidebar
 
   return (
@@ -17,22 +16,16 @@ const Work = ({ data }) => {
         content={sideBarContent}
         lang={pageContent.lang}
       />
-      {pageContent.data.body.map((block) =>
-        block.items.map((item) => (
-          <GatsbyImage
-            alt={item.image.alt}
-            key={item.image.alt}
-            image={item.image.gatsbyImageData}
-          />
-        ))
-      )}
+
+      <h3>{pageContent.data.headline.text}</h3>
+      <p>{pageContent.data.textcontent.text}</p>
     </>
   )
 }
 
 export const query = graphql`
-  query pageQuery($id: String, $lang: String) {
-    prismicWork(id: { eq: $id }, lang: { eq: $lang }) {
+  query bookIllustrationsPageQuery($id: String, $lang: String) {
+    prismicBookIllustrations(id: { eq: $id }, lang: { eq: $lang }) {
       lang
       alternate_languages {
         id
@@ -41,16 +34,11 @@ export const query = graphql`
         uid
       }
       data {
-        body {
-          ... on PrismicWorkDataBodyImageGallery {
-            id
-            items {
-              image {
-                alt
-                gatsbyImageData
-              }
-            }
-          }
+        headline {
+          text
+        }
+        textcontent {
+          text
         }
       }
     }
@@ -84,4 +72,4 @@ export const query = graphql`
   }
 `
 
-export default Work
+export default BookIllustrations

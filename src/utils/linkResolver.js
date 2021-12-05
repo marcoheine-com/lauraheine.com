@@ -4,10 +4,10 @@ exports.linkResolver = (doc) => {
       return doc.lang === 'en-us' ? '/' : `/${doc.lang}`
     }
 
-    case 'bookIllustrations': {
+    case 'book_illustrations': {
       return doc.lang === 'en-us'
-        ? `/book-illustrations/${doc.uid}`
-        : `/book-illustrations/${doc.lang}/${doc.uid}`
+        ? `/book-illustrations/`
+        : `/book-illustrations/${doc.lang}`
     }
 
     default:
