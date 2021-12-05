@@ -14,6 +14,7 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-postcss',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -29,6 +30,14 @@ module.exports = {
         accessToken: process.env.PRISMIC_ACCESS_TOKEN,
         customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
         linkResolver: require('./src/utils/linkResolver').linkResolver,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          `Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap`,
+        ],
       },
     },
   ],

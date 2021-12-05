@@ -14,13 +14,19 @@ export const Sidebar = ({ lang, altLangs, content }) => {
       </h1>
       <h2>{subline.text}</h2>
 
-      {navigation.map(({ navigation_item, navigation_item_label }) =>
-        navigation_item.url === null ? null : (
-          <Link to={navigation_item.url} key={navigation_item.id}>
-            {navigation_item_label.text}
-          </Link>
-        )
-      )}
+      <nav className="flex flex-col">
+        {navigation.map(({ navigation_item, navigation_item_label }) =>
+          navigation_item.url === null ? null : (
+            <Link
+              to={navigation_item.url}
+              key={navigation_item.id}
+              activeClassName="font-bold"
+            >
+              {navigation_item_label.text}
+            </Link>
+          )
+        )}
+      </nav>
 
       <a
         href={instagramlink.url}

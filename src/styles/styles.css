@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Recursive', sans-serif;
+    font-size: 16px;
+    font-variation-settings: 'MONO' 1, 'CASL' 0, 'slnt' 0, 'CRSV' 0.5;
+    font-weight: 300;
+    margin: 0;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Recursive', sans-serif;
+    font-variation-settings: 'MONO' 1, 'CASL' 1, 'slnt' 0, 'CRSV' 0.5;
+    font-weight: 700;
+    margin-top: 0;
+  }
+  h1 {
+    @apply text-5xl;
+  }
+  h2 {
+    @apply text-3xl;
+    font-weight: normal;
+  }
+}

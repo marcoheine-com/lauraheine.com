@@ -3,29 +3,43 @@ import { graphql } from 'gatsby'
 import { Head } from '../components/head'
 import { Sidebar } from '../components/sidebar/sidebar'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { RichText } from 'prismic-reactjs'
 
 const Work = ({ data }) => {
   if (!data) return null
+
   const pageContent = data.prismicWork
   const sideBarContent = data.prismicSidebar
+  const cta = pageContent.data.body[1].primary
 
   return (
     <>
       <Head />
-      <Sidebar
-        altLangs={pageContent.alternate_languages}
-        content={sideBarContent}
-        lang={pageContent.lang}
-      />
-      {pageContent.data.body.map((block) =>
-        block.items.map((item) => (
-          <GatsbyImage
-            alt={item.image.alt}
-            key={item.image.alt}
-            image={item.image.gatsbyImageData}
+      <section className="pt-20 pr-8 pl-8 flex flex-col md:flex-row gap-12">
+        <aside className="">
+          <Sidebar
+            altLangs={pageContent.alternate_languages}
+            content={sideBarContent}
+            lang={pageContent.lang}
           />
-        ))
-      )}
+        </aside>
+        <main>
+          {pageContent.data.body[0]?.items?.map((item) => (
+            <GatsbyImage
+              alt={item.image.alt}
+              key={item.image.alt}
+              image={item.image.gatsbyImageData}
+            />
+          ))}
+
+          {cta ? (
+            <>
+              <h3>{cta.cta_headline.text}</h3>
+              <RichText render={cta.cta_text_content.richText} />
+            </>
+          ) : null}
+        </main>
+      </section>
     </>
   )
 }
@@ -48,6 +62,17 @@ export const query = graphql`
               image {
                 alt
                 gatsbyImageData
+              }
+            }
+          }
+          ... on PrismicWorkDataBodyCta {
+            id
+            primary {
+              cta_headline {
+                text
+              }
+              cta_text_content {
+                richText
               }
             }
           }

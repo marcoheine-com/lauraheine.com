@@ -2,6 +2,11 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 
+import favicon16x16 from '../../images/favicon-16x16.png'
+import favicon32x32 from '../../images/favicon-32x32.png'
+import favicon96x96 from '../../images/favicon-96x96.png'
+import faviconico from '../../images/favicon.ico'
+
 export const Head = () => {
   const data = useStaticQuery(graphql`
     query HeaderQuery {
@@ -16,7 +21,7 @@ export const Head = () => {
   `)
 
   return (
-    <Helmet>
+    <Helmet title={data.site.siteMetadata.title}>
       <html lang="en" />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,10 +32,10 @@ export const Head = () => {
       <meta property="og:type" content="website" />
       <meta property="og:url" content="https://www.mywebsite.com/page" />
       <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
-      <link rel="icon" href="/favicon.ico" />
-      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-      <title>{data.site.siteMetadata.title}</title>
+      <link rel="icon" type="image/png" href={favicon16x16} sizes="16x16" />
+      <link rel="icon" type="image/png" href={favicon32x32} sizes="32x32" />
+      <link rel="icon" type="image/png" href={favicon96x96} sizes="96x96" />
+      <link rel="icon" type="image/png" href={faviconico} sizes="16x16" />
     </Helmet>
   )
 }
