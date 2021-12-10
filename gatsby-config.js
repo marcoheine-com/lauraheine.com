@@ -32,13 +32,5 @@ module.exports = {
         linkResolver: require('./src/utils/linkResolver').linkResolver,
       },
     },
-    {
-      resolve: 'gatsby-plugin-google-fonts',
-      options: {
-        fonts: [
-          `Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap`,
-        ],
-      },
-    },
   ],
 }

@@ -22,11 +22,9 @@ export const LanguageSwitcher = ({ lang, altLangs }) => {
   }
 
   return (
-    <li>
-      <select value={lang} onChange={handleLangChange}>
-        {currentLangOption}
-        {alternateLangOptions}
-      </select>
-    </li>
+    <select value={lang} onChange={handleLangChange}>
+      {currentLangOption}
+      {alternateLangOptions}
+    </select>
   )
 }

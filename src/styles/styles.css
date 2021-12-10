@@ -4,11 +4,11 @@
 
 @layer base {
   body {
-    font-family: 'Recursive', sans-serif;
-    font-size: 16px;
+    @apply text-body;
+    font-family: 'RecursiveVariable';
+    font-size: 18px;
     font-variation-settings: 'MONO' 1, 'CASL' 0, 'slnt' 0, 'CRSV' 0.5;
-    font-weight: 300;
-    margin: 0;
+    font-weight: 400;
   }
   h1,
   h2,
@@ -16,16 +16,30 @@
   h4,
   h5,
   h6 {
-    font-family: 'Recursive', sans-serif;
     font-variation-settings: 'MONO' 1, 'CASL' 1, 'slnt' 0, 'CRSV' 0.5;
     font-weight: 700;
-    margin-top: 0;
   }
   h1 {
     @apply text-5xl;
   }
   h2 {
     @apply text-3xl;
-    font-weight: normal;
+  }
+  h3 {
+    @apply text-3xl;
+    @apply mb-6;
+  }
+  a {
+    @apply text-activeLink;
+  }
+}
+
+@layer utilities {
+  .hover-trigger .hover-target {
+    display: none;
+  }
+
+  .hover-trigger:hover .hover-target {
+    display: block;
   }
 }
