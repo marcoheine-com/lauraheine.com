@@ -16,7 +16,11 @@ const Work = ({ data }) => {
       sidebarContent={sideBarContent}
       lang={pageContent.lang}
     >
-      <ImageGallery images={pageContent.data.body[0]?.items} spacing="mb-16" />
+      <ImageGallery
+        images={pageContent.data.body[0]?.items}
+        marginBottom="mb-16"
+        paddingOnSides="px-4 md:px-0"
+      />
 
       <CallToAction cta={pageContent.data.body[1]?.primary} />
     </Layout>
@@ -31,7 +35,6 @@ export const query = graphql`
         id
         type
         lang
-        uid
       }
       data {
         body {
@@ -59,31 +62,7 @@ export const query = graphql`
       }
     }
     prismicSidebar(lang: { eq: $lang }) {
-      id
-      data {
-        headline {
-          text
-        }
-        navigation {
-          navigation_item_label {
-            text
-          }
-          navigation_item {
-            url
-            id
-          }
-        }
-        instagram_link_label {
-          text
-        }
-        instagramlink {
-          url
-          target
-        }
-        subline {
-          text
-        }
-      }
+      ...SidebarFragment
     }
   }
 `

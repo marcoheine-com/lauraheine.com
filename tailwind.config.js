@@ -7,6 +7,7 @@ module.exports = {
         'pinkHeader': "url('/pink-header.png')",
         'peach-background': "url('/peach-background.svg')",
         'confetti': "url('/confetti.svg')",
+        'peach-about': "url('/peach-about.svg')",
       },
     },
     colors: {

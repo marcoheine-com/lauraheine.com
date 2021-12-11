@@ -1,12 +1,19 @@
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import { LanguageSwitcher } from '../language-switcher'
 
 export const Sidebar = ({ lang, altLangs, content }) => {
   const { data } = content
-  const { headline, subline, instagramlink, instagram_link_label, navigation } =
-    data
+  const {
+    headline,
+    subline,
+    instagramlink,
+    instagram_link_label,
+    navigation,
+    legal_notice_link_label,
+    legal_notice_link,
+  } = data
 
   const [isOpen, setIsOpen] = React.useState(false)
 
@@ -34,10 +41,10 @@ export const Sidebar = ({ lang, altLangs, content }) => {
       <div
         className={`mt-4 ${isOpen ? 'block' : 'hidden'} md:block px-4 md:px-0`}
       >
-        <nav className="mb-10">
-          <ul className="flex flex-col">
-            {navigation.map(({ navigation_item, navigation_item_label }) =>
-              navigation_item.url === null ? null : (
+        <ul className="flex flex-col mb-10">
+          {navigation.map(
+            ({ navigation_item, navigation_item_label }) =>
+              navigation_item.url && (
                 <li
                   className="mb-4 last:mb-0 hover:font-bold"
                   key={navigation_item.id}
@@ -59,9 +66,8 @@ export const Sidebar = ({ lang, altLangs, content }) => {
                   </Link>
                 </li>
               )
-            )}
-          </ul>
-        </nav>
+          )}
+        </ul>
 
         <a
           className="flex items-center gap-2 hover:font-bold mb-72 justify-center text-body md:justify-start"
@@ -76,8 +82,53 @@ export const Sidebar = ({ lang, altLangs, content }) => {
           {instagram_link_label.text}
         </a>
 
-        <LanguageSwitcher lang={lang} altLangs={altLangs} />
+        <div className="flex justify-center gap-24 md:justify-start">
+          <Link
+            to={legal_notice_link?.url}
+            className="text-body hover:font-bold"
+          >
+            {legal_notice_link_label?.text}
+          </Link>
+
+          <LanguageSwitcher lang={lang} altLangs={altLangs} />
+        </div>
       </div>
     </aside>
   )
 }
+
+export const SidebarFragment = graphql`
+  fragment SidebarFragment on PrismicSidebar {
+    id
+    data {
+      headline {
+        text
+      }
+      navigation {
+        navigation_item_label {
+          text
+        }
+        navigation_item {
+          url
+          id
+        }
+      }
+      instagram_link_label {
+        text
+      }
+      instagramlink {
+        url
+        target
+      }
+      subline {
+        text
+      }
+      legal_notice_link_label {
+        text
+      }
+      legal_notice_link {
+        url
+      }
+    }
+  }
+`

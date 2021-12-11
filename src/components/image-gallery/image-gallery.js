@@ -2,7 +2,11 @@ import * as React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
 
-export const ImageGallery = ({ images, spacing = '' }) => {
+export const ImageGallery = ({
+  images,
+  marginBottom = '',
+  paddingOnSides = '',
+}) => {
   const [openImage, setOpenImage] = React.useState()
   const [isOpen, setIsOpen] = React.useState(false)
 
@@ -19,8 +23,8 @@ export const ImageGallery = ({ images, spacing = '' }) => {
     <>
       <section
         className={`grid grid-cols-2 gap-5 ${
-          spacing !== '' && spacing
-        } lg:grid-cols-3`}
+          marginBottom !== '' ? marginBottom : ''
+        } ${paddingOnSides !== '' ? paddingOnSides : ''} lg:grid-cols-3`}
       >
         {images?.map((item) => (
           <GatsbyImage

@@ -14,9 +14,23 @@ exports.createPages = async ({ graphql, actions }) => {
       }
       allPrismicBookIllustrations {
         nodes {
+          url
+          lang
           id
+        }
+      }
+      allPrismicAboutcontact {
+        nodes {
           lang
           url
+          id
+        }
+      }
+      allPrismicLegal {
+        nodes {
+          lang
+          url
+          id
         }
       }
     }
@@ -37,6 +51,28 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: page.url,
       component: path.resolve(__dirname, 'src/templates/book-illustrations.js'),
+      context: {
+        id: page.id,
+        lang: page.lang,
+      },
+    })
+  })
+
+  queryData.data.allPrismicAboutcontact.nodes.forEach((page) => {
+    createPage({
+      path: page.url,
+      component: path.resolve(__dirname, 'src/templates/about-contact.js'),
+      context: {
+        id: page.id,
+        lang: page.lang,
+      },
+    })
+  })
+
+  queryData.data.allPrismicLegal.nodes.forEach((page) => {
+    createPage({
+      path: page.url,
+      component: path.resolve(__dirname, 'src/templates/legal.js'),
       context: {
         id: page.id,
         lang: page.lang,

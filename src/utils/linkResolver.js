@@ -10,6 +10,16 @@ exports.linkResolver = (doc) => {
         : `/book-illustrations/${doc.lang}`
     }
 
+    case 'aboutcontact': {
+      return doc.lang === 'en-us'
+        ? `/about-contact/`
+        : `/about-contact/${doc.lang}`
+    }
+
+    case 'legal': {
+      return doc.lang === 'en-us' ? `/legal/` : `/legal/${doc.lang}`
+    }
+
     default:
       return '/'
   }

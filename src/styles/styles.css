@@ -32,6 +32,9 @@
   a {
     @apply text-activeLink;
   }
+  p {
+    @apply mb-6;
+  }
 }
 
 @layer utilities {

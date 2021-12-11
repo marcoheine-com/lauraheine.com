@@ -15,23 +15,22 @@ const BookIllustrations = ({ data }) => {
       altLangs={pageContent.alternate_languages}
       sidebarContent={sideBarContent}
       lang={pageContent.lang}
+      paddingOnSides="px-4 md:px-0"
     >
       <GatsbyImage
         image={pageContent.data.hero_image.gatsbyImageData}
         alt={pageContent.data.hero_image.alt}
         className="mb-8 md:mb-11"
       />
-      <section className="px-8 md:px-0">
-        <h3>{pageContent.data.headline.text}</h3>
-        <p className="mb-10 md:mb-16">{pageContent.data.textcontent.text}</p>
+      <h3>{pageContent.data.headline.text}</h3>
+      <p className="mb-10 md:mb-16">{pageContent.data.textcontent.text}</p>
 
-        <ImageGallery
-          images={pageContent.data.body[0]?.items}
-          spacing="mb-16"
-        />
+      <ImageGallery
+        images={pageContent.data.body[0]?.items}
+        marginBottom="mb-16"
+      />
 
-        <CallToAction cta={pageContent.data.body[1]?.primary} />
-      </section>
+      <CallToAction cta={pageContent.data.body[1]?.primary} />
     </Layout>
   )
 }
@@ -82,31 +81,7 @@ export const query = graphql`
       }
     }
     prismicSidebar(lang: { eq: $lang }) {
-      id
-      data {
-        headline {
-          text
-        }
-        navigation {
-          navigation_item_label {
-            text
-          }
-          navigation_item {
-            url
-            id
-          }
-        }
-        instagram_link_label {
-          text
-        }
-        instagramlink {
-          url
-          target
-        }
-        subline {
-          text
-        }
-      }
+      ...SidebarFragment
     }
   }
 `
