@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
-import { Layout } from '../components/Layout/layout'
+import { Layout } from '../components/layout'
 import { ImageGallery } from '../components/image-gallery'
 import { CallToAction } from '../components/call-to-action'
 

@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import * as React from 'react'
-import { Layout } from '../components/Layout/layout'
+import { Layout } from '../components/layout'
 
 const Legal = ({ data }) => {
   if (!data) return null

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Head } from '../head'
-import { Sidebar } from '../sidebar/sidebar'
+import { Sidebar } from '../sidebar'
 
 export const Layout = ({
   altLangs,

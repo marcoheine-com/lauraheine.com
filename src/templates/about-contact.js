@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { RichText } from 'prismic-reactjs'
 import * as React from 'react'
-import { Layout } from '../components/Layout/layout'
+import { Layout } from '../components/layout'
 
 const AboutContact = ({ data }) => {
   if (!data) return null
