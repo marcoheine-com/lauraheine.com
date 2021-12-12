@@ -1,21 +1,24 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-
 import { linkResolver } from '../../utils/linkResolver'
 
 export const LanguageSwitcher = ({ lang, altLangs }) => {
+  // NOTE: This component is hard coded with the langs EN and DE
+  // to have it shown as EN | DE
+  // if we want to add more languages we need to add them here
+  const renderLang = (lang, langStr) => {
+    return lang === 'en-us' ? (
+      <span className="font-bold">{langStr}</span>
+    ) : (
+      <Link to={linkResolver(altLangs[0])} className="text-body">
+        {langStr}
+      </Link>
+    )
+  }
+
   return (
-    <div className="flex gap-2">
-      <span className="font-bold">{lang.slice(0, 2).toUpperCase()}</span>|
-      {altLangs.map((altLang, index) => (
-        <Link
-          key={`alt-lang-${index}`}
-          to={linkResolver(altLang)}
-          className="text-body"
-        >
-          {altLang.lang.slice(0, 2).toUpperCase()}
-        </Link>
-      ))}
+    <div className="flex gap-2 md:justify-self-end">
+      {renderLang(lang, 'EN')} | {renderLang(altLangs[0]?.lang, 'DE')}
     </div>
   )
 }

@@ -82,7 +82,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
           {instagram_link_label.text}
         </a>
 
-        <div className="flex justify-center gap-24 md:justify-start">
+        <div className="grid grid-cols-2 justify-items-center md:justify-items-start">
           <Link
             to={legal_notice_link?.url}
             className="text-body hover:font-bold"
