@@ -9,9 +9,20 @@ const FindingTheLittleThings = ({ data: queryData }) => {
 
   const sideBarContent = queryData.prismicSidebar
 
+  const { nodes } = queryData.allEtsyListing
+
   const pageContent = queryData.prismicFindingTheLittleThings
   const { alternate_languages, lang, data } = pageContent
-  const { logo, headline, content, instagram_link, instagram_link_label } = data
+  const {
+    logo,
+    headline,
+    content,
+    instagram_link,
+    instagram_link_label,
+    etsy_cta,
+    etsy_cta_link,
+    etsy_headline,
+  } = data
 
   return (
     <Layout
@@ -40,6 +51,40 @@ const FindingTheLittleThings = ({ data: queryData }) => {
         </section>
       </section>
 
+      <section className="mb-20 md:mb">
+        <h3>{etsy_headline.text}</h3>
+        <section className="flex gap-5 overflow-x-auto mb-10 pr-3">
+          {nodes.map((item) => (
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={item.id}
+              className="flex flex-col flex-none shrink w-72 border-darkPeach border-2 shadow-lg hover:shadow-xl mb-4"
+            >
+              <GatsbyImage
+                image={
+                  item.childEtsyListingImage.childFile.childImageSharp
+                    .gatsbyImageData
+                }
+                alt={item.title}
+                className="mb-4"
+              />
+              <h5 className="px-4 mb-2 text-body">{item.title}</h5>
+              <p className="pr-4 self-end text-body">{item.price}</p>
+            </a>
+          ))}
+        </section>
+        <a
+          href={etsy_cta_link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex justify-center bg-peach text-body mx-auto px-4 py-3 w-40 rounded-full hover:bg-darkPeach"
+        >
+          {etsy_cta.text}
+        </a>
+      </section>
+
       <h3>{data.body[0]?.primary.headline1.text}</h3>
       <RichText render={data.body[0]?.primary.text.richText} />
       {data.body[0]?.items.map((item) => (
@@ -59,7 +104,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Download
+              {item.download_link_text.text}
             </a>
           </section>
         </section>
@@ -94,9 +139,17 @@ export const query = graphql`
         instagram_link {
           url
         }
+        etsy_cta {
+          text
+        }
+        etsy_cta_link {
+          url
+        }
+        etsy_headline {
+          text
+        }
         body {
           ... on PrismicFindingTheLittleThingsDataBodyDownloads {
-            id
             primary {
               headline1 {
                 text
@@ -116,6 +169,9 @@ export const query = graphql`
               download_link {
                 url
               }
+              download_link_text {
+                text
+              }
               download_text {
                 richText
               }
@@ -126,6 +182,26 @@ export const query = graphql`
     }
     prismicSidebar(lang: { eq: $lang }) {
       ...SidebarFragment
+    }
+    allEtsyListing(limit: 3) {
+      nodes {
+        id
+        title
+        price
+        url
+        childEtsyListingImage {
+          childFile {
+            childImageSharp {
+              gatsbyImageData(
+                placeholder: BLURRED
+                layout: CONSTRAINED
+                width: 270
+                height: 270
+              )
+            }
+          }
+        }
+      }
     }
   }
 `

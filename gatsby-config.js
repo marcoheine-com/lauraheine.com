@@ -32,5 +32,12 @@ module.exports = {
         linkResolver: require('./src/utils/linkResolver').linkResolver,
       },
     },
+    {
+      resolve: 'gatsby-source-etsy',
+      options: {
+        api_key: process.env.GATSBY_ETSY_API_KEY,
+        shop_id: 'FindingLittleThings',
+      },
+    },
   ],
 }
