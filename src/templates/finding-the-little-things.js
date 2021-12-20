@@ -51,7 +51,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
         </section>
       </section>
 
-      <section className="mb-20 md:mb">
+      <section className="mb-20 md:mb-16">
         <h3>{etsy_headline.text}</h3>
         <section className="flex gap-5 overflow-x-auto mb-10 pr-3">
           {nodes.map((item) => (
@@ -87,28 +87,30 @@ const FindingTheLittleThings = ({ data: queryData }) => {
 
       <h3>{data.body[0]?.primary.headline1.text}</h3>
       <RichText render={data.body[0]?.primary.text.richText} />
-      {data.body[0]?.items.map((item) => (
-        <section
-          className="grid grid-cols-2 gap-5 mb-7 last:mb-0"
-          key={item.download_image.alt}
-        >
-          <GatsbyImage
-            alt={item.download_image.alt}
-            image={item.download_image.gatsbyImageData}
-          />
-          <section>
-            <h4>{item.download_headline.text}</h4>
-            <RichText render={item.download_text.richText} />
-            <a
-              href={item.download_link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {item.download_link_text.text}
-            </a>
+      <section className="md:flex md:gap-10">
+        {data.body[0]?.items.map((item) => (
+          <section
+            className="grid grid-cols-2 gap-5 mb-7 last:mb-0"
+            key={item.download_image.alt}
+          >
+            <GatsbyImage
+              alt={item.download_image.alt}
+              image={item.download_image.gatsbyImageData}
+            />
+            <section>
+              <h4>{item.download_headline.text}</h4>
+              <RichText render={item.download_text.richText} />
+              <a
+                href={item.download_link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.download_link_text.text}
+              </a>
+            </section>
           </section>
-        </section>
-      ))}
+        ))}
+      </section>
     </Layout>
   )
 }
