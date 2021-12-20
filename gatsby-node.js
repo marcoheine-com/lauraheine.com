@@ -33,6 +33,13 @@ exports.createPages = async ({ graphql, actions }) => {
           id
         }
       }
+      allPrismicFindingTheLittleThings {
+        nodes {
+          lang
+          url
+          id
+        }
+      }
     }
   `)
 
@@ -73,6 +80,20 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: page.url,
       component: path.resolve(__dirname, 'src/templates/legal.js'),
+      context: {
+        id: page.id,
+        lang: page.lang,
+      },
+    })
+  })
+
+  queryData.data.allPrismicFindingTheLittleThings.nodes.forEach((page) => {
+    createPage({
+      path: page.url,
+      component: path.resolve(
+        __dirname,
+        'src/templates/finding-the-little-things.js'
+      ),
       context: {
         id: page.id,
         lang: page.lang,

@@ -9,10 +9,15 @@ module.exports = {
         'confetti': "url('/confetti.svg')",
         'peach-about': "url('/peach-about.svg')",
       },
+      boxShadow: {
+        'lg': '10px 10px #FFE6E3',
+        'xl': '10px 10px #FFB7B7',
+      }
     },
     colors: {
       body: '#292929',
       peach: '#FFE6E3',
+      darkPeach: '#FFB7B7',
       activeLink: '#6E53B7',
     },
   },

@@ -1,6 +1,3 @@
-import '@fontsource/recursive/variable-full.css'
-import './src/styles/styles.css'
-
 import * as React from 'react'
 import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
 

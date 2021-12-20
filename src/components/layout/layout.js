@@ -15,7 +15,9 @@ export const Layout = ({
       <section className="py-20 flex flex-col md:flex-row gap-12 max-w-screen-xl mx-auto my-0">
         <Sidebar altLangs={altLangs} content={sidebarContent} lang={lang} />
         <main
-          className={`${paddingOnSides !== '' ? paddingOnSides : ''} md:pr-12`}
+          className={`${
+            paddingOnSides !== '' ? paddingOnSides : ''
+          } md:pr-12 md:overflow-x-auto`}
         >
           {children}
         </main>
