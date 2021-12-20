@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import { Layout } from '../components/layout'
 import { ImageGallery } from '../components/image-gallery'
 import { CallToAction } from '../components/call-to-action'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
 const Work = ({ data }) => {
   if (!data) return null
@@ -30,6 +31,7 @@ const Work = ({ data }) => {
 export const query = graphql`
   query pageQuery($id: String, $lang: String) {
     prismicWork(id: { eq: $id }, lang: { eq: $lang }) {
+      _previewable
       lang
       alternate_languages {
         id
@@ -67,4 +69,4 @@ export const query = graphql`
   }
 `
 
-export default Work
+export default withPrismicPreview(Work)

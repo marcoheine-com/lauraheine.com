@@ -39,5 +39,12 @@ module.exports = {
         shop_id: 'FindingLittleThings',
       },
     },
+    {
+      resolve: 'gatsby-plugin-prismic-previews',
+      options: {
+        repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+      },
+    },
   ],
 }
