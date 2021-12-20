@@ -4,6 +4,7 @@ import { Layout } from '../components/layout'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { ImageGallery } from '../components/image-gallery'
 import { CallToAction } from '../components/call-to-action'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 
 const BookIllustrations = ({ data }) => {
   if (!data) return null
@@ -38,6 +39,7 @@ const BookIllustrations = ({ data }) => {
 export const query = graphql`
   query bookIllustrationsPageQuery($id: String, $lang: String) {
     prismicBookIllustrations(id: { eq: $id }, lang: { eq: $lang }) {
+      _previewable
       lang
       alternate_languages {
         id
@@ -86,4 +88,4 @@ export const query = graphql`
   }
 `
 
-export default BookIllustrations
+export default withPrismicPreview(BookIllustrations)

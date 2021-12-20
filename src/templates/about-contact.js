@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { RichText } from 'prismic-reactjs'
 import * as React from 'react'
 import { Layout } from '../components/layout'
@@ -37,6 +38,7 @@ const AboutContact = ({ data }) => {
 export const query = graphql`
   query aboutContactPageQuery($id: String, $lang: String) {
     prismicAboutcontact(id: { eq: $id }, lang: { eq: $lang }) {
+      _previewable
       alternate_languages {
         id
         type
@@ -62,4 +64,4 @@ export const query = graphql`
   }
 `
 
-export default AboutContact
+export default withPrismicPreview(AboutContact)
