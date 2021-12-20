@@ -1,4 +1,5 @@
 import { graphql } from 'gatsby'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import * as React from 'react'
 import { Layout } from '../components/layout'
 
@@ -22,6 +23,7 @@ const Legal = ({ data }) => {
 export const query = graphql`
   query legalPageQuery($id: String, $lang: String) {
     prismicLegal(id: { eq: $id }, lang: { eq: $lang }) {
+      _previewable
       alternate_languages {
         id
         type
@@ -35,4 +37,4 @@ export const query = graphql`
   }
 `
 
-export default Legal
+export default withPrismicPreview(Legal)

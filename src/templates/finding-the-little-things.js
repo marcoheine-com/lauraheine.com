@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { RichText } from 'prismic-reactjs'
 import * as React from 'react'
 import { Layout } from '../components/layout'
@@ -118,6 +119,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
 export const query = graphql`
   query findingTheLittleThingsPageQuery($id: String, $lang: String) {
     prismicFindingTheLittleThings(id: { eq: $id }, lang: { eq: $lang }) {
+      _previewable
       alternate_languages {
         id
         type
@@ -208,4 +210,4 @@ export const query = graphql`
   }
 `
 
-export default FindingTheLittleThings
+export default withPrismicPreview(FindingTheLittleThings)
