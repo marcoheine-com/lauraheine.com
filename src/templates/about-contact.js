@@ -16,9 +16,9 @@ const AboutContact = ({ data }) => {
       lang={pageContent.lang}
       paddingOnSides="px-4 md:px-0"
     >
-      <section className="relative md:grid grid-cols-2">
-        <div className="bg-peach-about bg-no-repeat bg-center absolute left-0 right-0 mx-auto w-96 h-80 top-8" />
-        <div className="flex justify-center">
+      <section className="relative md:grid md:grid-cols-2">
+        <div className="absolute left-0 right-0 w-80 h-72 top-8 mx-auto bg-peach-about bg-no-repeat bg-top bg-contain md:w-full md:h-full xl:bg-center" />
+        <div className="flex justify-center md:flex-col md:justify-start">
           <GatsbyImage
             image={pageContent.data.about_image.gatsbyImageData}
             alt={pageContent.data.about_image.alt}
