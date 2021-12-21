@@ -1,6 +1,5 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       backgroundImage: {
@@ -26,12 +25,6 @@ module.exports = {
       md: ['1.5rem', '1.875rem'],
       lg: ['2rem', '2.875rem'],
       xl: ['2.5rem', '3rem'],
-    },
-  },
-  variants: {
-    extend: {
-      margin: ['last'],
-      fontWeight: ['hover'],
     },
   },
   plugins: [],

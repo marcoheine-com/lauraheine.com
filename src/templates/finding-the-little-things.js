@@ -99,7 +99,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
               image={item.download_image.gatsbyImageData}
             />
             <section>
-              <h4>{item.download_headline.text}</h4>
+              <h4 className="text-base">{item.download_headline.text}</h4>
               <RichText render={item.download_text.richText} />
               <a
                 href={item.download_link.url}
