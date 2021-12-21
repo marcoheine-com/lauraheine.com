@@ -6,7 +6,6 @@
   body {
     @apply text-body;
     font-family: 'RecursiveVariable';
-    font-size: 18px;
     font-variation-settings: 'MONO' 1, 'CASL' 0, 'slnt' 0, 'CRSV' 0.5;
     font-weight: 400;
   }
@@ -20,20 +19,22 @@
     font-weight: 700;
   }
   h1 {
-    @apply text-5xl;
+    @apply text-xl;
   }
   h2 {
-    @apply text-3xl;
+    @apply text-md;
   }
   h3 {
-    @apply text-3xl;
-    @apply mb-6;
+    @apply text-lg mb-4 md:mb-6;
+  }
+  h4 {
+    @apply text-sm;
   }
   a {
     @apply text-activeLink;
   }
   p {
-    @apply mb-6;
+    @apply text-base mb-6;
   }
 }
 

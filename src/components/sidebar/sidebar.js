@@ -45,14 +45,11 @@ export const Sidebar = ({ lang, altLangs, content }) => {
           {navigation.map(
             ({ navigation_item, navigation_item_label }) =>
               navigation_item.url && (
-                <li
-                  className="mb-4 last:mb-0 hover:font-bold"
-                  key={navigation_item.id}
-                >
+                <li className="mb-4 last:mb-0" key={navigation_item.id}>
                   <Link
                     to={navigation_item.url}
                     activeClassName="font-bold"
-                    className="flex gap-2 items-center hover-trigger justify-center text-body md:justify-start"
+                    className="flex gap-2 items-center hover-trigger justify-center text-body hover:font-bold md:justify-start "
                   >
                     {navigation_item_label.text}
                     <StaticImage
