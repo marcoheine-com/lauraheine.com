@@ -71,7 +71,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
                 alt={item.title}
                 className="mb-4"
               />
-              <h5 className="px-4 mb-2 text-body">{item.title}</h5>
+              <h4 className="px-4 mb-2 text-body">{item.title}</h4>
               <p className="pr-4 self-end text-body">{item.price}</p>
             </a>
           ))}
