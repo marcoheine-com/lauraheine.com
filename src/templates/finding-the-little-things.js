@@ -61,7 +61,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
               target="_blank"
               rel="noopener noreferrer"
               key={item.id}
-              className="flex flex-col flex-none shrink w-72 border-darkPeach border-2 shadow-lg hover:shadow-xl mb-4"
+              className="flex flex-col flex-none shrink min-w-[18rem] border-darkPeach border-2 shadow-lg hover:shadow-xl mb-4"
             >
               <GatsbyImage
                 image={
@@ -71,7 +71,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
                 alt={item.title}
                 className="mb-4"
               />
-              <h4 className="px-4 mb-2 text-body">{item.title}</h4>
+              <h4 className="pl-4 pr-20 mb-2 text-body">{item.title}</h4>
               <p className="pr-4 self-end text-body">{item.price}</p>
             </a>
           ))}
