@@ -5,11 +5,15 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { ImageGallery } from '../components/image-gallery'
 import { CallToAction } from '../components/call-to-action'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import { findPageContent } from '../utils/findPageContent'
 
 const BookIllustrations = ({ data }) => {
   if (!data) return null
   const pageContent = data.prismicBookIllustrations
   const sideBarContent = data.prismicSidebar
+
+  const imageGallery = findPageContent('image_gallery', pageContent.data.body)
+  const cta = findPageContent('cta', pageContent.data.body)
 
   return (
     <Layout
@@ -26,12 +30,11 @@ const BookIllustrations = ({ data }) => {
       <h3>{pageContent.data.headline.text}</h3>
       <p className="mb-10 md:mb-16">{pageContent.data.textcontent.text}</p>
 
-      <ImageGallery
-        images={pageContent.data.body[0]?.items}
-        marginBottom="mb-16"
-      />
+      {imageGallery && (
+        <ImageGallery images={imageGallery.items} marginBottom="mb-16" />
+      )}
 
-      <CallToAction cta={pageContent.data.body[1]?.primary} />
+      {cta && <CallToAction cta={cta.primary} />}
     </Layout>
   )
 }
@@ -61,6 +64,7 @@ export const query = graphql`
         body {
           ... on PrismicBookIllustrationsDataBodyCta {
             id
+            slice_type
             primary {
               cta_headline {
                 text
@@ -72,6 +76,7 @@ export const query = graphql`
           }
           ... on PrismicBookIllustrationsDataBodyImageGallery {
             id
+            slice_type
             items {
               image {
                 gatsbyImageData

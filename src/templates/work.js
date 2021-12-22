@@ -4,6 +4,7 @@ import { Layout } from '../components/layout'
 import { ImageGallery } from '../components/image-gallery'
 import { CallToAction } from '../components/call-to-action'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import { findPageContent } from '../utils/findPageContent'
 
 const Work = ({ data }) => {
   if (!data) return null
@@ -11,19 +12,24 @@ const Work = ({ data }) => {
   const pageContent = data.prismicWork
   const sideBarContent = data.prismicSidebar
 
+  const imageGallery = findPageContent('image_gallery', pageContent.data.body)
+  const cta = findPageContent('cta', pageContent.data.body)
+
   return (
     <Layout
       altLangs={pageContent.alternate_languages}
       sidebarContent={sideBarContent}
       lang={pageContent.lang}
     >
-      <ImageGallery
-        images={pageContent.data.body[0]?.items}
-        marginBottom="mb-16"
-        paddingOnSides="px-4 md:px-0"
-      />
+      {imageGallery && (
+        <ImageGallery
+          images={imageGallery.items}
+          marginBottom="mb-16"
+          paddingOnSides="px-4 md:px-0"
+        />
+      )}
 
-      <CallToAction cta={pageContent.data.body[1]?.primary} />
+      {cta && <CallToAction cta={cta.primary} />}
     </Layout>
   )
 }
@@ -42,6 +48,7 @@ export const query = graphql`
         body {
           ... on PrismicWorkDataBodyImageGallery {
             id
+            slice_type
             items {
               image {
                 alt
@@ -51,6 +58,7 @@ export const query = graphql`
           }
           ... on PrismicWorkDataBodyCta {
             id
+            slice_type
             primary {
               cta_headline {
                 text
