@@ -25,7 +25,7 @@
     @apply text-md;
   }
   h3 {
-    @apply text-lg mb-4 md:mb-6;
+    @apply text-lg mb-4 lg:mb-6;
   }
   h4 {
     @apply text-sm;
@@ -45,5 +45,13 @@
 
   .hover-trigger:hover .hover-target {
     display: block;
+  }
+
+  .masonry {
+    @apply columns-3 block gap-5;
+  }
+
+  .break-inside {
+    break-inside: avoid;
   }
 }

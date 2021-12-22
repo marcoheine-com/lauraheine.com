@@ -25,7 +25,7 @@ const Work = ({ data }) => {
         <ImageGallery
           images={imageGallery.items}
           marginBottom="mb-16"
-          paddingOnSides="px-4 md:px-0"
+          paddingOnSides="px-4 lg:px-0"
         />
       )}
 
@@ -52,7 +52,7 @@ export const query = graphql`
             items {
               image {
                 alt
-                gatsbyImageData
+                gatsbyImageData(placeholder: DOMINANT_COLOR)
               }
             }
           }

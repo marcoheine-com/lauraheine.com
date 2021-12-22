@@ -18,17 +18,17 @@ export const Sidebar = ({ lang, altLangs, content }) => {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <aside className="md:pl-12">
-      <h1 className="text-center whitespace-nowrap mb-2 bg-pinkHeader bg-no-repeat bg-center px-4 text-body md:px-0">
+    <aside className="lg:pl-12">
+      <h1 className="text-center whitespace-nowrap mb-2 bg-pinkHeader bg-no-repeat bg-center px-4 text-body lg:px-0">
         <Link className="text-body" to={lang === 'en-us' ? '/' : `/${lang}/`}>
           {headline.text}
         </Link>
       </h1>
-      <h2 className="text-center font-normal mb-6 md:mb-16 px-4 md:px-0">
+      <h2 className="text-center font-normal mb-6 lg:mb-16 px-4 lg:px-0">
         {subline.text}
       </h2>
 
-      <nav className="flex justify-center py-4 bg-peach md:hidden">
+      <nav className="flex justify-center py-4 bg-peach lg:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center gap-4"
@@ -39,7 +39,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
       </nav>
 
       <div
-        className={`mt-4 ${isOpen ? 'block' : 'hidden'} md:block px-4 md:px-0`}
+        className={`mt-4 ${isOpen ? 'block' : 'hidden'} lg:block px-4 lg:px-0`}
       >
         <ul className="flex flex-col mb-10">
           {navigation.map(
@@ -49,7 +49,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
                   <Link
                     to={navigation_item.url}
                     activeClassName="font-bold"
-                    className="flex gap-2 items-center hover-trigger justify-center text-body hover:font-bold md:justify-start "
+                    className="flex gap-2 items-center hover-trigger justify-center text-body hover:font-bold lg:justify-start "
                   >
                     {navigation_item_label.text}
                     <StaticImage
@@ -67,7 +67,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
         </ul>
 
         <a
-          className="flex items-center gap-2 hover:font-bold mb-72 justify-center text-body md:justify-start"
+          className="flex items-center gap-2 hover:font-bold mb-72 justify-center text-body lg:justify-start"
           href={instagramlink.url}
           target={instagramlink.target}
           rel="noopener noreferrer"
@@ -79,7 +79,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
           {instagram_link_label.text}
         </a>
 
-        <div className="grid grid-cols-2 justify-items-center md:justify-items-start">
+        <div className="grid grid-cols-2 justify-items-center lg:justify-items-start">
           <Link
             to={legal_notice_link?.url}
             className="text-body hover:font-bold"

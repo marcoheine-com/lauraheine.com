@@ -20,15 +20,15 @@ const BookIllustrations = ({ data }) => {
       altLangs={pageContent.alternate_languages}
       sidebarContent={sideBarContent}
       lang={pageContent.lang}
-      paddingOnSides="px-4 md:px-0"
+      paddingOnSides="px-4 lg:px-0"
     >
       <GatsbyImage
         image={pageContent.data.hero_image.gatsbyImageData}
         alt={pageContent.data.hero_image.alt}
-        className="mb-8 md:mb-11"
+        className="mb-8 lg:mb-11"
       />
       <h3>{pageContent.data.headline.text}</h3>
-      <p className="mb-10 md:mb-16">{pageContent.data.textcontent.text}</p>
+      <p className="mb-10 lg:mb-16">{pageContent.data.textcontent.text}</p>
 
       {imageGallery && (
         <ImageGallery images={imageGallery.items} marginBottom="mb-16" />

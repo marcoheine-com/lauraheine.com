@@ -17,7 +17,7 @@ export const LanguageSwitcher = ({ lang, altLangs }) => {
   }
 
   return (
-    <div className="flex gap-2 md:justify-self-end">
+    <div className="flex gap-2 lg:justify-self-end">
       {renderLang(lang, 'EN')} | {renderLang(altLangs[0]?.lang, 'DE')}
     </div>
   )

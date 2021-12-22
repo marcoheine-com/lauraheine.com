@@ -24,7 +24,7 @@ export const ImageGallery = ({
       <section
         className={`grid grid-cols-2 gap-5 ${
           marginBottom !== '' ? marginBottom : ''
-        } ${paddingOnSides !== '' ? paddingOnSides : ''} lg:grid-cols-3`}
+        } ${paddingOnSides !== '' ? paddingOnSides : ''} md:masonry`}
       >
         {images?.map((item) => (
           <GatsbyImage
@@ -32,6 +32,8 @@ export const ImageGallery = ({
             key={item.image.alt}
             image={item.image.gatsbyImageData}
             onClick={() => handleOpenImage(item.image)}
+            objectFit="contain"
+            className="cursor-pointer break-inside py-3"
           />
         ))}
       </section>
@@ -39,7 +41,7 @@ export const ImageGallery = ({
       {isOpen && (
         <section
           ref={ref}
-          className="absolute top-1/3 left-0 md:top-0 m-11 z-1"
+          className="absolute top-1/3 left-0 lg:top-0 m-11 z-1"
         >
           <GatsbyImage alt={openImage.alt} image={openImage?.gatsbyImageData} />
           <button

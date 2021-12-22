@@ -30,9 +30,9 @@ const FindingTheLittleThings = ({ data: queryData }) => {
       altLangs={alternate_languages}
       sidebarContent={sideBarContent}
       lang={lang}
-      paddingOnSides="px-4 md:px-0"
+      paddingOnSides="px-4 lg:px-0"
     >
-      <section className="mb-20 md:mb-16 md:flex md:gap-5">
+      <section className="mb-20 lg:mb-16 lg:flex lg:gap-5">
         <GatsbyImage image={logo.gatsbyImageData} alt={data.logo.alt} />
         <section>
           <h3>{headline.text}</h3>
@@ -52,7 +52,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
         </section>
       </section>
 
-      <section className="mb-20 md:mb-16">
+      <section className="mb-20 lg:mb-16">
         <h3>{etsy_headline.text}</h3>
         <section className="flex gap-5 overflow-x-auto mb-10 pr-3">
           {nodes.map((item) => (
@@ -61,7 +61,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
               target="_blank"
               rel="noopener noreferrer"
               key={item.id}
-              className="flex flex-col flex-none shrink min-w-[18rem] border-darkPeach border-2 shadow-lg hover:shadow-xl mb-4"
+              className="flex flex-col flex-none shrink min-w-[18rem] max-w-[18rem] border-darkPeach border-2 shadow-lg hover:shadow-xl mb-4"
             >
               <GatsbyImage
                 image={
@@ -88,7 +88,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
 
       <h3>{data.body[0]?.primary.headline1.text}</h3>
       <RichText render={data.body[0]?.primary.text.richText} />
-      <section className="md:flex md:gap-10">
+      <section className="lg:flex lg:gap-10">
         {data.body[0]?.items.map((item) => (
           <section
             className="grid grid-cols-2 gap-5 mb-7 last:mb-0"
