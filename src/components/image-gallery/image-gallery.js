@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
+import { Dialog } from '@reach/dialog'
+import '@reach/dialog/styles.css'
 
 export const ImageGallery = ({
   images,
@@ -22,9 +24,9 @@ export const ImageGallery = ({
   return (
     <>
       <section
-        className={`grid grid-cols-2 gap-5 ${
+        className={`masonry-md ${isOpen && 'blur-sm'}  ${
           marginBottom !== '' ? marginBottom : ''
-        } ${paddingOnSides !== '' ? paddingOnSides : ''} md:masonry`}
+        } ${paddingOnSides !== '' ? paddingOnSides : ''} md:masonry-lg`}
       >
         {images?.map((item) => (
           <GatsbyImage
@@ -33,25 +35,26 @@ export const ImageGallery = ({
             image={item.image.gatsbyImageData}
             onClick={() => handleOpenImage(item.image)}
             objectFit="contain"
-            className="cursor-pointer break-inside py-3"
+            className="cursor-pointer break-inside my-3"
           />
         ))}
       </section>
 
-      {isOpen && (
-        <section
-          ref={ref}
-          className="absolute top-1/3 left-0 lg:top-0 m-11 z-1"
+      <Dialog isOpen={isOpen} ref={ref}>
+        <GatsbyImage
+          alt={openImage?.alt}
+          image={openImage?.gatsbyImageData}
+          imgStyle={{
+            objectFit: 'contain',
+          }}
+        />
+        <button
+          className="fixed top-10 right-10 bg-peach p-8"
+          onClick={() => setIsOpen(false)}
         >
-          <GatsbyImage alt={openImage.alt} image={openImage?.gatsbyImageData} />
-          <button
-            className="absolute top-0 right-0"
-            onClick={() => setIsOpen(false)}
-          >
-            Close
-          </button>
-        </section>
-      )}
+          Close
+        </button>
+      </Dialog>
     </>
   )
 }

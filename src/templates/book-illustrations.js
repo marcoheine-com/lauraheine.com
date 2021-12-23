@@ -53,7 +53,7 @@ export const query = graphql`
       data {
         hero_image {
           alt
-          gatsbyImageData
+          gatsbyImageData(placeholder: DOMINANT_COLOR)
         }
         headline {
           text
@@ -79,7 +79,7 @@ export const query = graphql`
             slice_type
             items {
               image {
-                gatsbyImageData
+                gatsbyImageData(placeholder: DOMINANT_COLOR)
                 alt
               }
             }

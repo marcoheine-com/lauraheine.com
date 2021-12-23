@@ -51,7 +51,7 @@ export const query = graphql`
         }
         about_image {
           alt
-          gatsbyImageData(height: 280, width: 280)
+          gatsbyImageData(height: 280, width: 280, placeholder: DOMINANT_COLOR)
         }
         about_content {
           richText

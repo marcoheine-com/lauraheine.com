@@ -18,7 +18,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <aside className="lg:pl-12">
+    <aside className="lg:pl-12 lg:sticky lg:top-20 lg:self-start">
       <h1 className="text-center whitespace-nowrap mb-2 bg-pinkHeader bg-no-repeat bg-center px-4 text-body lg:px-0">
         <Link className="text-body" to={lang === 'en-us' ? '/' : `/${lang}/`}>
           {headline.text}

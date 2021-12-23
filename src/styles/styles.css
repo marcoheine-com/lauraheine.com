@@ -47,7 +47,11 @@
     display: block;
   }
 
-  .masonry {
+  .masonry-md {
+    @apply columns-2 block gap-5;
+  }
+
+  .masonry-lg {
     @apply columns-3 block gap-5;
   }
 

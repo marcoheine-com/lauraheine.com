@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@fontsource/recursive": "^4.5.0",
+    "@reach/dialog": "^0.16.2",
     "gatsby": "^4.3.0",
     "gatsby-plugin-image": "^2.3.0",
     "gatsby-plugin-postcss": "^5.3.0",

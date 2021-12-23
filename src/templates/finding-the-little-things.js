@@ -128,7 +128,7 @@ export const query = graphql`
       lang
       data {
         logo {
-          gatsbyImageData
+          gatsbyImageData(placeholder: DOMINANT_COLOR)
           alt
         }
         headline {
@@ -164,7 +164,7 @@ export const query = graphql`
             }
             items {
               download_image {
-                gatsbyImageData
+                gatsbyImageData(placeholder: DOMINANT_COLOR)
                 alt
               }
               download_headline {
@@ -197,7 +197,7 @@ export const query = graphql`
           childFile {
             childImageSharp {
               gatsbyImageData(
-                placeholder: BLURRED
+                placeholder: DOMINANT_COLOR
                 layout: CONSTRAINED
                 width: 270
                 height: 270
