@@ -76,7 +76,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
                 className="mb-4"
               />
               <h4 className="pl-4 pr-20 mb-2 text-body">{item.title}</h4>
-              <p className="pr-4 self-end text-body">{item.price}</p>
+              <p className="pr-4 self-end text-body">€{item.price}</p>
             </a>
           ))}
         </section>
@@ -84,7 +84,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
           href={etsy_cta_link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex justify-center bg-peach text-body mx-auto px-4 py-3 w-40 rounded-full hover:bg-darkPeach"
+          className="flex justify-center bg-peach text-body font-bold mx-auto px-4 py-3 w-40 rounded-full hover:bg-darkPeach"
         >
           {etsy_cta.text}
         </a>

@@ -6,7 +6,7 @@
   body {
     @apply text-body;
     font-family: 'RecursiveVariable';
-    font-variation-settings: 'MONO' 1, 'CASL' 0, 'slnt' 0, 'CRSV' 0.5;
+    font-variation-settings: 'MONO' 0, 'CASL' 0, 'slnt' 0, 'CRSV' 0.5;
     font-weight: 400;
   }
   h1,
@@ -31,7 +31,7 @@
     @apply text-sm;
   }
   a {
-    @apply text-activeLink;
+    @apply text-activeLink hover:font-bold;
   }
   p {
     @apply text-base mb-6;

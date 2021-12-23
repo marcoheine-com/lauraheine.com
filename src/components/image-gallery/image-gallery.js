@@ -40,21 +40,23 @@ export const ImageGallery = ({
         ))}
       </section>
 
-      <Dialog isOpen={isOpen} ref={ref}>
-        <GatsbyImage
-          alt={openImage?.alt}
-          image={openImage?.gatsbyImageData}
-          imgStyle={{
-            objectFit: 'contain',
-          }}
-        />
-        <button
-          className="fixed top-10 right-10 bg-peach p-8"
-          onClick={() => setIsOpen(false)}
-        >
-          Close
-        </button>
-      </Dialog>
+      {isOpen && (
+        <Dialog isOpen={isOpen} aria-label={openImage?.alt} ref={ref}>
+          <GatsbyImage
+            alt={openImage?.alt}
+            image={openImage?.gatsbyImageData}
+            imgStyle={{
+              objectFit: 'contain',
+            }}
+          />
+          <button
+            className="fixed top-10 right-10 bg-peach p-8"
+            onClick={() => setIsOpen(false)}
+          >
+            Close
+          </button>
+        </Dialog>
+      )}
     </>
   )
 }

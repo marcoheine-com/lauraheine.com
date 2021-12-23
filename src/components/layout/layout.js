@@ -12,10 +12,12 @@ export const Layout = ({
   return (
     <>
       <Head />
-      <section className="py-20 flex flex-col lg:flex-row gap-12 max-w-[120rem] mx-auto my-0">
+      <section className="flex flex-col lg:flex-row gap-12 max-w-[120rem] mx-auto my-0">
         <Sidebar altLangs={altLangs} content={sidebarContent} lang={lang} />
         <main
-          className={`${paddingOnSides !== '' ? paddingOnSides : ''} lg:pr-12`}
+          className={`${
+            paddingOnSides !== '' ? paddingOnSides : ''
+          } py-8 lg:py-20 lg:pr-12`}
         >
           {children}
         </main>
