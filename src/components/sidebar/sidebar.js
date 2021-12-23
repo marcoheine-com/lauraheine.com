@@ -18,7 +18,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <aside className="lg:pl-12 lg:sticky lg:top-20 lg:self-start">
+    <aside className="lg:pl-12 lg:sticky lg:top-20 lg:self-start lg:full-height-aside lg:flex lg:flex-col">
       <h1 className="text-center whitespace-nowrap mb-2 bg-pinkHeader bg-no-repeat bg-center px-4 text-body lg:px-0">
         <Link className="text-body" to={lang === 'en-us' ? '/' : `/${lang}/`}>
           {headline.text}
@@ -39,7 +39,9 @@ export const Sidebar = ({ lang, altLangs, content }) => {
       </nav>
 
       <div
-        className={`mt-4 ${isOpen ? 'block' : 'hidden'} lg:block px-4 lg:px-0`}
+        className={`mt-4 ${
+          isOpen ? 'block' : 'hidden'
+        } mb-72 lg:block px-4 lg:px-0 lg:mb-0`}
       >
         <ul className="flex flex-col mb-10">
           {navigation.map(
@@ -65,9 +67,8 @@ export const Sidebar = ({ lang, altLangs, content }) => {
               )
           )}
         </ul>
-
         <a
-          className="flex items-center gap-2 hover:font-bold mb-72 justify-center text-body lg:justify-start"
+          className="flex items-center gap-2 hover:font-bold justify-center text-body lg:justify-start"
           href={instagramlink.url}
           target={instagramlink.target}
           rel="noopener noreferrer"
@@ -78,17 +79,18 @@ export const Sidebar = ({ lang, altLangs, content }) => {
           />
           {instagram_link_label.text}
         </a>
+      </div>
 
-        <div className="grid grid-cols-2 justify-items-center lg:justify-items-start">
-          <Link
-            to={legal_notice_link?.url}
-            className="text-body hover:font-bold"
-          >
-            {legal_notice_link_label?.text}
-          </Link>
+      <div
+        className={`${
+          isOpen ? 'grid' : 'hidden'
+        } lg:grid grid-cols-2 justify-items-center lg:justify-items-start lg:mt-auto lg:pb-4`}
+      >
+        <Link to={legal_notice_link?.url} className="text-body hover:font-bold">
+          {legal_notice_link_label?.text}
+        </Link>
 
-          <LanguageSwitcher lang={lang} altLangs={altLangs} />
-        </div>
+        <LanguageSwitcher lang={lang} altLangs={altLangs} />
       </div>
     </aside>
   )

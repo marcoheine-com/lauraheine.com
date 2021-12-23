@@ -32,8 +32,12 @@ const FindingTheLittleThings = ({ data: queryData }) => {
       lang={lang}
       paddingOnSides="px-4 lg:px-0"
     >
-      <section className="mb-20 lg:mb-16 lg:flex lg:gap-5">
-        <GatsbyImage image={logo.gatsbyImageData} alt={data.logo.alt} />
+      <section className="mb-20 lg:mb-16 lg:flex lg:gap-5 lg:items-start">
+        <GatsbyImage
+          image={logo.gatsbyImageData}
+          alt={data.logo.alt}
+          imgStyle={{ objectFit: 'contain' }}
+        />
         <section>
           <h3>{headline.text}</h3>
           <RichText render={content.richText} />

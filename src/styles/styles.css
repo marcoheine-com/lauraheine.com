@@ -58,4 +58,8 @@
   .break-inside {
     break-inside: avoid;
   }
+
+  .full-height-aside {
+    height: calc(100vh - theme('spacing.20'));
+  }
 }

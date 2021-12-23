@@ -24,9 +24,9 @@ export const ImageGallery = ({
   return (
     <>
       <section
-        className={`masonry-md ${isOpen && 'blur-sm'}  ${
-          marginBottom !== '' ? marginBottom : ''
-        } ${paddingOnSides !== '' ? paddingOnSides : ''} md:masonry-lg`}
+        className={`masonry-md ${marginBottom !== '' ? marginBottom : ''} ${
+          paddingOnSides !== '' ? paddingOnSides : ''
+        } md:masonry-lg`}
       >
         {images?.map((item) => (
           <GatsbyImage
