@@ -19,7 +19,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <aside className="pt-8 lg:pt-0 lg:pl-12 lg:sticky lg:top-20 lg:self-start lg:full-height-aside lg:flex lg:flex-col">
+    <aside className="pt-8 lg:pt-0 lg:pl-12 lg:sticky lg:top-20 lg:self-start lg:full-height-aside lg:flex lg:flex-col lg:mt-20">
       <h1 className="text-center whitespace-nowrap mb-2 bg-pinkHeader bg-no-repeat bg-center px-4 text-body lg:px-0">
         <Link className="text-body" to={lang === 'en-us' ? '/' : `/${lang}/`}>
           {headline.text}
@@ -52,7 +52,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
                   <Link
                     to={navigation_item.url}
                     activeClassName="font-bold"
-                    className="flex items-center justify-center text-body hover:font-bold lg:justify-start "
+                    className="flex items-center justify-center text-body hover:font-bold lg:justify-start hover-trigger"
                   >
                     <span className="flex gap-2 items-center flex-wrap">
                       {navigation_item_label.text}
@@ -62,6 +62,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
                         layout="fixed"
                         width={19}
                         height={19}
+                        className="hover-target"
                       />
                     </span>
                   </Link>
