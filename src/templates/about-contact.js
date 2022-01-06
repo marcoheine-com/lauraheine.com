@@ -24,6 +24,8 @@ const AboutContact = ({ data }) => {
             image={pageContent.data.about_image.gatsbyImageData}
             alt={pageContent.data.about_image.alt}
             imgStyle={{ borderRadius: '50%', width: '100%', height: '100%' }}
+            loading="eager"
+            place
           />
         </div>
         <div className="relative z-1 lg:col-span-2">

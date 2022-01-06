@@ -1,8 +1,9 @@
 import { graphql } from 'gatsby'
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { RichText } from 'prismic-reactjs'
 import * as React from 'react'
+import { InstagramLink } from '../components/instagram-link/instagram-link'
 import { Layout } from '../components/layout'
 
 const FindingTheLittleThings = ({ data: queryData }) => {
@@ -31,28 +32,23 @@ const FindingTheLittleThings = ({ data: queryData }) => {
       sidebarContent={sideBarContent}
       lang={lang}
       paddingOnSides="px-4 lg:px-0"
+      scrollableX
     >
       <section className="mb-20 lg:mb-16 lg:flex lg:gap-5 lg:items-start">
         <GatsbyImage
           image={logo.gatsbyImageData}
           alt={data.logo.alt}
           imgStyle={{ objectFit: 'contain' }}
+          loading="eager"
         />
         <section>
           <h3>{headline.text}</h3>
           <RichText render={content.richText} />
-          <a
+          <InstagramLink
             href={instagram_link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:font-bold text-body"
-          >
-            <StaticImage
-              src="../images/instagram-icon.png"
-              alt="instagram logo"
-            />
-            {instagram_link_label.text}
-          </a>
+            className="flex items-center hover:font-bold text-body"
+            linkText={instagram_link_label.text}
+          />
         </section>
       </section>
 

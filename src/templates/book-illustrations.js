@@ -26,6 +26,7 @@ const BookIllustrations = ({ data }) => {
         image={pageContent.data.hero_image.gatsbyImageData}
         alt={pageContent.data.hero_image.alt}
         className="mb-8 lg:mb-11"
+        loading="eager"
       />
       <h3>{pageContent.data.headline.text}</h3>
       <p className="mb-10 lg:mb-16">{pageContent.data.textcontent.text}</p>

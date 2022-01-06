@@ -1,6 +1,7 @@
 import { graphql, Link } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import * as React from 'react'
+import { InstagramLink } from '../instagram-link/instagram-link'
 import { LanguageSwitcher } from '../language-switcher'
 
 export const Sidebar = ({ lang, altLangs, content }) => {
@@ -53,11 +54,10 @@ export const Sidebar = ({ lang, altLangs, content }) => {
                     activeClassName="font-bold"
                     className="flex items-center justify-center text-body hover:font-bold lg:justify-start "
                   >
-                    <span className="flex gap-2 items-center flex-wrap hover-trigger">
+                    <span className="flex gap-2 items-center flex-wrap">
                       {navigation_item_label.text}
                       <StaticImage
-                        className="hover-target"
-                        src="../../images/Arrow.png"
+                        src="../../images/Arrow.svg"
                         alt="An arrow"
                         layout="fixed"
                         width={19}
@@ -69,18 +69,12 @@ export const Sidebar = ({ lang, altLangs, content }) => {
               )
           )}
         </ul>
-        <a
-          className="flex items-center gap-2 hover:font-bold justify-center text-body lg:justify-start"
+        <InstagramLink
           href={instagramlink.url}
           target={instagramlink.target}
-          rel="noopener noreferrer"
-        >
-          <StaticImage
-            src="../../images/instagram-icon.png"
-            alt="instagram logo"
-          />
-          {instagram_link_label.text}
-        </a>
+          className="flex items-center hover:font-bold justify-center text-body lg:justify-start"
+          linkText={instagram_link_label.text}
+        />
       </div>
 
       <div

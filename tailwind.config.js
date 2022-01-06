@@ -7,6 +7,7 @@ module.exports = {
         'peach-background': "url('/peach-background.svg')",
         'confetti': "url('/confetti.svg')",
         'peach-about': "url('/peach-about.svg')",
+        'peach-insta': "url('/swwash_pink.svg')",
       },
       boxShadow: {
         'lg': '10px 10px #FFE6E3',

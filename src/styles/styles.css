@@ -47,6 +47,10 @@
     display: block;
   }
 
+  .hover-trigger:hover .hover-hide {
+    display: none;
+  }
+
   .masonry-md {
     @apply columns-2 block gap-5;
   }
@@ -61,5 +65,9 @@
 
   .full-height-aside {
     height: calc(100vh - theme('spacing.20'));
+  }
+
+  [data-reach-dialog-content] {
+    @apply w-full md:w-8/12 lg:w-6/12 !important;
   }
 }
