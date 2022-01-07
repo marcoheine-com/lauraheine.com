@@ -54,7 +54,7 @@ export const query = graphql`
       data {
         hero_image {
           alt
-          gatsbyImageData(placeholder: DOMINANT_COLOR)
+          gatsbyImageData
         }
         headline {
           text

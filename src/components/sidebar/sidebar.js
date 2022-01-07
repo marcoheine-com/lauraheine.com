@@ -42,7 +42,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
       <div
         className={`mt-4 ${
           isOpen ? 'block' : 'hidden'
-        } mb-72 lg:block px-4 lg:px-0 lg:mb-0`}
+        } mb-36 lg:block px-4 lg:px-0 lg:mb-0`}
       >
         <ul className="flex flex-col mb-10">
           {navigation.map(

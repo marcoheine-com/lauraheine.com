@@ -128,7 +128,7 @@ export const query = graphql`
       lang
       data {
         logo {
-          gatsbyImageData(placeholder: DOMINANT_COLOR)
+          gatsbyImageData
           alt
         }
         headline {

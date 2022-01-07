@@ -28,7 +28,7 @@ export const ImageGallery = ({
           paddingOnSides !== '' ? paddingOnSides : ''
         } md:masonry-lg`}
       >
-        {images?.map((item) => (
+        {images?.map((item, index) => (
           <GatsbyImage
             alt={item.image.alt}
             key={item.image.alt}
@@ -36,6 +36,7 @@ export const ImageGallery = ({
             onClick={() => handleOpenImage(item.image)}
             objectFit="contain"
             className="cursor-pointer break-inside my-3"
+            loading={index <= 3 ? 'eager' : 'lazy'}
           />
         ))}
       </section>
