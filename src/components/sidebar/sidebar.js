@@ -62,7 +62,7 @@ export const Sidebar = ({ lang, altLangs, content }) => {
                         layout="fixed"
                         width={19}
                         height={19}
-                        className="hover-target"
+                        className="hidden lg:hover-target"
                       />
                     </span>
                   </Link>

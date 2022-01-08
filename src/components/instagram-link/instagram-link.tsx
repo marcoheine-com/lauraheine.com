@@ -17,12 +17,12 @@ export const InstagramLink = ({
       <StaticImage
         src="../../images/instagram-logo-peach.svg"
         alt="instagram logo"
-        className="hover-target"
+        className="hidden lg:hover-target"
       />
       <StaticImage
         src="../../images/instagram-logo.svg"
         alt="instagram logo"
-        className="hover-hide"
+        className="lg:hover-hide"
       />
       <span className="px-2 hover:bg-peach-insta hover:bg-no-repeat hover:bg-center">
         {linkText}

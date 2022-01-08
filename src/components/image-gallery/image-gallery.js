@@ -9,12 +9,17 @@ export const ImageGallery = ({
   marginBottom = '',
   paddingOnSides = '',
 }) => {
-  const [openImage, setOpenImage] = React.useState()
+  const [openImage, setOpenImage] = React.useState(undefined)
   const [isOpen, setIsOpen] = React.useState(false)
 
   const ref = React.useRef()
 
-  useOnClickOutside(ref, () => setIsOpen(false))
+  useOnClickOutside(ref, () => handleCloseImage())
+
+  const handleCloseImage = () => {
+    setIsOpen(false)
+    setOpenImage(undefined)
+  }
 
   const handleOpenImage = (img) => {
     setOpenImage(img)
@@ -29,15 +34,18 @@ export const ImageGallery = ({
         } md:masonry-lg`}
       >
         {images?.map((item, index) => (
-          <GatsbyImage
-            alt={item.image.alt}
-            key={item.image.alt}
-            image={item.image.gatsbyImageData}
+          <span
             onClick={() => handleOpenImage(item.image)}
-            objectFit="contain"
-            className="cursor-pointer break-inside my-3"
-            loading={index <= 3 ? 'eager' : 'lazy'}
-          />
+            key={item.image.alt}
+          >
+            <GatsbyImage
+              alt={item.image.alt}
+              image={item.image.gatsbyImageData}
+              objectFit="contain"
+              className="cursor-pointer break-inside my-3"
+              loading={index <= 3 ? 'eager' : 'lazy'}
+            />
+          </span>
         ))}
       </section>
 
@@ -52,7 +60,7 @@ export const ImageGallery = ({
           />
           <button
             className="fixed top-10 right-10 bg-peach p-8"
-            onClick={() => setIsOpen(false)}
+            onClick={handleCloseImage}
           >
             Close
           </button>
