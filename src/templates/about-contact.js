@@ -4,6 +4,7 @@ import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
 import { RichText } from 'prismic-reactjs'
 import * as React from 'react'
 import { Layout } from '../components/layout'
+import { linkResolver } from '../utils/linkResolver'
 
 const AboutContact = ({ data }) => {
   if (!data) return null
@@ -29,7 +30,10 @@ const AboutContact = ({ data }) => {
         </div>
         <div className="relative z-1 lg:col-span-2">
           <h3>{pageContent.data.headline.text}</h3>
-          <RichText render={pageContent.data.about_content.richText} />
+          <RichText
+            render={pageContent.data.about_content.richText}
+            linkResolver={linkResolver}
+          />
         </div>
       </section>
     </Layout>

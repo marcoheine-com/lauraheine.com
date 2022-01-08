@@ -26,12 +26,6 @@ export const Head = () => {
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="description" content={data.site.siteMetadata.description} />
-      <meta property="og:image" content="https://www.mywebsite.com/image.jpg" />
-      <meta property="og:image:alt" content="Image description" />
-      <meta property="og:locale" content="en_GB" />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://www.mywebsite.com/page" />
-      <link rel="canonical" href={data.site.siteMetadata.siteUrl} />
       <link rel="icon" type="image/png" href={favicon16x16} sizes="16x16" />
       <link rel="icon" type="image/png" href={favicon32x32} sizes="32x32" />
       <link rel="icon" type="image/png" href={favicon96x96} sizes="96x96" />
