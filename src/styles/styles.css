@@ -70,4 +70,9 @@
   [data-reach-dialog-content] {
     @apply w-full md:w-8/12 lg:w-6/12 !important;
   }
+
+  /* Overwrite gatsby image wrapper display */
+  .hidden-important {
+    display: none !important;
+  }
 }

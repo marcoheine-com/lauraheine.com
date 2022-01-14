@@ -20,6 +20,7 @@ const Work = ({ data }) => {
       altLangs={pageContent.alternate_languages}
       sidebarContent={sideBarContent}
       lang={pageContent.lang}
+      title="work"
     >
       {imageGallery && (
         <ImageGallery

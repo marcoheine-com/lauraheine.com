@@ -33,6 +33,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
       lang={lang}
       paddingOnSides="px-4 lg:px-0"
       scrollableX
+      title="Finding the Little Things"
     >
       <section className="mb-20 lg:mb-16 lg:flex lg:gap-5 lg:items-start">
         <GatsbyImage
@@ -86,32 +87,36 @@ const FindingTheLittleThings = ({ data: queryData }) => {
         </a>
       </section>
 
-      <h3>{data.body[0]?.primary.headline1.text}</h3>
-      <RichText render={data.body[0]?.primary.text.richText} />
-      <section className="lg:flex lg:gap-10">
-        {data.body[0]?.items.map((item) => (
-          <section
-            className="grid grid-cols-2 gap-5 mb-7 last:mb-0"
-            key={item.download_image.alt}
-          >
-            <GatsbyImage
-              alt={item.download_image.alt}
-              image={item.download_image.gatsbyImageData}
-            />
-            <section>
-              <h4 className="text-base">{item.download_headline.text}</h4>
-              <RichText render={item.download_text.richText} />
-              <a
-                href={item.download_link.url}
-                target="_blank"
-                rel="noopener noreferrer"
+      {data.body[0] && (
+        <>
+          <h3>{data.body[0]?.primary.headline1.text}</h3>
+          <RichText render={data.body[0]?.primary.text.richText} />
+          <section className="lg:flex lg:gap-10">
+            {data.body[0]?.items.map((item) => (
+              <section
+                className="grid grid-cols-2 gap-5 mb-7 last:mb-0"
+                key={item.download_image.alt}
               >
-                {item.download_link_text.text}
-              </a>
-            </section>
+                <GatsbyImage
+                  alt={item.download_image.alt}
+                  image={item.download_image.gatsbyImageData}
+                />
+                <section>
+                  <h4 className="text-base">{item.download_headline.text}</h4>
+                  <RichText render={item.download_text.richText} />
+                  <a
+                    href={item.download_link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.download_link_text.text}
+                  </a>
+                </section>
+              </section>
+            ))}
           </section>
-        ))}
-      </section>
+        </>
+      )}
     </Layout>
   )
 }

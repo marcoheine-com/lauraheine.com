@@ -9,11 +9,12 @@ export const Layout = ({
   children,
   paddingOnSides = '',
   scrollableX = false,
+  title,
 }) => {
   return (
     <>
-      <Head />
-      <section className="flex flex-col lg:flex-row gap-12 max-w-[120rem] mx-auto my-0">
+      <Head title={title} />
+      <section className="flex flex-col lg:justify-center lg:flex-row gap-12 max-w-[120rem] mx-auto my-0">
         <Sidebar altLangs={altLangs} content={sidebarContent} lang={lang} />
         <main
           className={`${paddingOnSides !== '' ? paddingOnSides : ''} ${

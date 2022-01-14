@@ -7,7 +7,7 @@ import favicon32x32 from '../../images/favicon-32x32.png'
 import favicon96x96 from '../../images/favicon-96x96.png'
 import faviconico from '../../images/favicon.ico'
 
-export const Head = () => {
+export const Head = ({ title }) => {
   const data = useStaticQuery(graphql`
     query HeaderQuery {
       site {
@@ -21,7 +21,10 @@ export const Head = () => {
   `)
 
   return (
-    <Helmet title={data.site.siteMetadata.title}>
+    <Helmet
+      title={title}
+      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+    >
       <html lang="en" />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />

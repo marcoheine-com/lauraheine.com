@@ -17,6 +17,7 @@ const AboutContact = ({ data }) => {
       sidebarContent={sideBarContent}
       lang={pageContent.lang}
       paddingOnSides="px-4 lg:px-0"
+      title="about & contact"
     >
       <section className="relative lg:grid lg:grid-cols-3 lg:gap-5">
         <div className="absolute left-0 right-0 w-80 h-72 top-8 mx-auto bg-peach-about bg-no-repeat bg-top bg-contain lg:w-full lg:h-full xl:bg-center" />
