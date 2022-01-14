@@ -14,7 +14,7 @@ export const Layout = ({
   return (
     <>
       <Head title={title} />
-      <section className="flex flex-col lg:justify-center lg:flex-row gap-12 max-w-[120rem] mx-auto my-0">
+      <section className="flex flex-col lg:justify-center lg:flex-row lg:gap-12 max-w-[120rem] mx-auto my-0">
         <Sidebar altLangs={altLangs} content={sidebarContent} lang={lang} />
         <main
           className={`${paddingOnSides !== '' ? paddingOnSides : ''} ${

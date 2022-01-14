@@ -22,6 +22,9 @@ const Work = ({ data }) => {
       lang={pageContent.lang}
       title="work"
     >
+      <h2 className="text-center mb-5 lg:hidden">
+        {pageContent.data.pageheader.text}
+      </h2>
       {imageGallery && (
         <ImageGallery
           images={imageGallery.items}
@@ -69,6 +72,9 @@ export const query = graphql`
               }
             }
           }
+        }
+        pageheader {
+          text
         }
       }
     }
