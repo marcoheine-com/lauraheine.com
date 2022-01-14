@@ -35,12 +35,13 @@ const FindingTheLittleThings = ({ data: queryData }) => {
       scrollableX
       title="Finding the Little Things"
     >
-      <section className="mb-20 lg:mb-16 lg:flex lg:gap-5 lg:items-start">
+      <section className="mb-20 flex flex-col lg:mb-16 lg:flex-row lg:gap-5 lg:items-start">
         <GatsbyImage
           image={logo.gatsbyImageData}
           alt={data.logo.alt}
-          imgStyle={{ objectFit: 'contain' }}
           loading="eager"
+          style={{ flex: '0 0 auto' }}
+          className="self-center lg:self-start"
         />
         <section>
           <h3>{headline.text}</h3>
@@ -133,7 +134,7 @@ export const query = graphql`
       lang
       data {
         logo {
-          gatsbyImageData
+          gatsbyImageData(height: 280, width: 280)
           alt
         }
         headline {

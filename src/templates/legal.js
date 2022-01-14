@@ -1,7 +1,9 @@
 import { graphql } from 'gatsby'
 import { withPrismicPreview } from 'gatsby-plugin-prismic-previews'
+import { RichText } from 'prismic-reactjs'
 import * as React from 'react'
 import { Layout } from '../components/layout'
+import { linkResolver } from '../utils/linkResolver'
 
 const Legal = ({ data }) => {
   if (!data) return null
@@ -15,7 +17,10 @@ const Legal = ({ data }) => {
       lang={pageContent.lang}
       paddingOnSides="px-4 lg:px-0"
     >
-      <p>Legal</p>
+      <RichText
+        render={pageContent.data.legal.richText}
+        linkResolver={linkResolver}
+      />
     </Layout>
   )
 }
@@ -30,6 +35,11 @@ export const query = graphql`
         lang
       }
       lang
+      data {
+        legal {
+          richText
+        }
+      }
     }
     prismicSidebar(lang: { eq: $lang }) {
       ...SidebarFragment
