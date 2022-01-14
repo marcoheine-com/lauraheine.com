@@ -17,7 +17,7 @@ export const InstagramLink = ({
       <StaticImage
         src="../../images/instagram-logo-peach.svg"
         alt="instagram logo"
-        className="hidden lg:hover-target"
+        className="hidden-important lg:hover-target"
       />
       <StaticImage
         src="../../images/instagram-logo.svg"
