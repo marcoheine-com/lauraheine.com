@@ -18,6 +18,7 @@
     "@reach/dialog": "^0.16.2",
     "gatsby": "^4.3.0",
     "gatsby-plugin-image": "^2.3.0",
+    "gatsby-plugin-plausible": "^0.0.7",
     "gatsby-plugin-postcss": "^5.3.0",
     "gatsby-plugin-prismic-previews": "^5.2.1",
     "gatsby-plugin-react-helmet": "^5.3.0",

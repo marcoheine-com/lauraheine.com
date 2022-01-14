@@ -15,6 +15,12 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-postcss',
     {
+      resolve: `gatsby-plugin-plausible`,
+      options: {
+        domain: `lauraheine.com`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
         siteUrl: `https://lauraheine.com`,
