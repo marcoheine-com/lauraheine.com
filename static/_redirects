@@ -1,2 +1,2 @@
-https://findingthelittlethings.com https://lauraheine.com
-https://findinglittlethings.com https://lauraheine.com
+https://findingthelittlethings.com/*  https://lauraheine.com/:splat 301!
+https://findinglittlethings.com/*     https://lauraheine.com/:splat 301!
