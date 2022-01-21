@@ -44,7 +44,7 @@
   }
 
   .hover-trigger:hover .hover-target {
-    display: flex;
+    display: flex !important;
   }
 
   .hover-trigger:hover .hover-hide {

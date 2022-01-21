@@ -13,6 +13,8 @@ const Work = ({ data }) => {
   const sideBarContent = data.prismicSidebar
 
   const imageGallery = findPageContent('image_gallery', pageContent.data.body)
+  const { items, primary } = imageGallery
+
   const cta = findPageContent('cta', pageContent.data.body)
 
   return (
@@ -27,7 +29,7 @@ const Work = ({ data }) => {
       </h2>
       {imageGallery && (
         <ImageGallery
-          images={imageGallery.items}
+          images={primary.reverse_order ? items.reverse() : items}
           marginBottom="mb-16"
           paddingOnSides="px-4 lg:px-0"
         />
@@ -53,6 +55,9 @@ export const query = graphql`
           ... on PrismicWorkDataBodyImageGallery {
             id
             slice_type
+            primary {
+              reverse_order
+            }
             items {
               image {
                 alt
