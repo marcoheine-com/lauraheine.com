@@ -15,6 +15,8 @@ const Work = ({ data }) => {
   const imageGallery = findPageContent('image_gallery', pageContent.data.body)
   const { items, primary } = imageGallery
 
+  const itemsWithReversedOrder = [...items].reverse()
+
   const cta = findPageContent('cta', pageContent.data.body)
 
   return (
@@ -29,7 +31,7 @@ const Work = ({ data }) => {
       </h2>
       {imageGallery && (
         <ImageGallery
-          images={primary.reverse_order ? items.reverse() : items}
+          images={primary.reverse_order ? itemsWithReversedOrder : items}
           marginBottom="mb-16"
           paddingOnSides="px-4 lg:px-0"
         />
