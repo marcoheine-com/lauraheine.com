@@ -1,13 +1,16 @@
 import '@fontsource/recursive/variable-full.css'
 import './src/styles/styles.css'
 
-import * as React from 'react'
-import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
+// Disable preview temporarily because the prismic preview
+// loads google fonts which is not GDPR compliant
 
-import { repositoryConfigs } from './src/utils/prismicPreviews'
+// import * as React from 'react'
+// import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
 
-export const wrapRootElement = ({ element }) => (
-  <PrismicPreviewProvider repositoryConfigs={repositoryConfigs}>
-    {element}
-  </PrismicPreviewProvider>
-)
+// import { repositoryConfigs } from './src/utils/prismicPreviews'
+
+// export const wrapRootElement = ({ element }) => (
+//   <PrismicPreviewProvider repositoryConfigs={repositoryConfigs}>
+//     {element}
+//   </PrismicPreviewProvider>
+// )

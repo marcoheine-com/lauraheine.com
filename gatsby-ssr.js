@@ -1,10 +1,13 @@
-import * as React from 'react'
-import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
+// import * as React from 'react'
+// import { PrismicPreviewProvider } from 'gatsby-plugin-prismic-previews'
 
-import { repositoryConfigs } from './src/utils/prismicPreviews'
+// Disable preview temporarily because the prismic preview
+// loads google fonts which is not GDPR compliant
 
-export const wrapRootElement = ({ element }) => (
-  <PrismicPreviewProvider repositoryConfigs={repositoryConfigs}>
-    {element}
-  </PrismicPreviewProvider>
-)
+// import { repositoryConfigs } from './src/utils/prismicPreviews'
+
+// export const wrapRootElement = ({ element }) => (
+//   <PrismicPreviewProvider repositoryConfigs={repositoryConfigs}>
+//     {element}
+//   </PrismicPreviewProvider>
+// )

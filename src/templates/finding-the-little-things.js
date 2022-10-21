@@ -11,7 +11,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
 
   const sideBarContent = queryData.prismicSidebar
 
-  const { nodes } = queryData.allEtsyListing
+  // const { nodes } = queryData.allEtsyListing
 
   const pageContent = queryData.prismicFindingTheLittleThings
   const { alternate_languages, lang, data } = pageContent
@@ -21,9 +21,9 @@ const FindingTheLittleThings = ({ data: queryData }) => {
     content,
     instagram_link,
     instagram_link_label,
-    etsy_cta,
-    etsy_cta_link,
-    etsy_headline,
+    // etsy_cta,
+    // etsy_cta_link,
+    // etsy_headline,
   } = data
 
   return (
@@ -54,7 +54,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
         </section>
       </section>
 
-      <section className="mb-20 lg:mb-16">
+      {/* <section className="mb-20 lg:mb-16">
         <h3>{etsy_headline.text}</h3>
         <section className="flex gap-5 overflow-x-auto mb-10 pr-3">
           {nodes.map((item) => (
@@ -86,7 +86,7 @@ const FindingTheLittleThings = ({ data: queryData }) => {
         >
           {etsy_cta.text}
         </a>
-      </section>
+      </section> */}
 
       {data.body[0] && (
         <>
@@ -193,27 +193,29 @@ export const query = graphql`
     prismicSidebar(lang: { eq: $lang }) {
       ...SidebarFragment
     }
-    allEtsyListing(limit: 3) {
-      nodes {
-        id
-        title
-        price
-        url
-        childEtsyListingImage {
-          childFile {
-            childImageSharp {
-              gatsbyImageData(
-                placeholder: DOMINANT_COLOR
-                layout: CONSTRAINED
-                width: 270
-                height: 270
-              )
-            }
-          }
-        }
-      }
-    }
   }
 `
 
 export default withPrismicPreview(FindingTheLittleThings)
+
+// Temporarily removed
+// allEtsyListing(limit: 3) {
+//   nodes {
+//     id
+//     title
+//     price
+//     url
+//     childEtsyListingImage {
+//       childFile {
+//         childImageSharp {
+//           gatsbyImageData(
+//             placeholder: DOMINANT_COLOR
+//             layout: CONSTRAINED
+//             width: 270
+//             height: 270
+//           )
+//         }
+//       }
+//     }
+//   }
+// }
